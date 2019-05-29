@@ -1,0 +1,59 @@
+<view wx:if="{{isHide}}">
+    <view wx:if="{{canIUse}}" >
+        <view class='header'>
+            <image src='/images/wx_login.png'></image>
+        </view>
+
+        <view class='content'>
+            <view>申请获取以下权限</view>
+            <text>获得你的公开信息(昵称，头像等)</text>
+        </view>
+        <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+            授权登录
+        </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
+</view>
+
+<view wx:else>
+<!-- <view wx:for="{{results}}" wx:for-index="index" wx:for-item="item">
+{{index+1}}、{{item.name}}
+</view>  -->
+
+  <view class="tr">
+    <view class='history-table-wrap'>
+      <view class="table">
+          <view class="tr">
+            <view class="th th1" bindtap ="tap" data-id="1" bindlongtap="tap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">
+            姓名  <image src="{{imageurl[0]}}" class="sort"></image>
+            </view>
+            <view class="th th2" bindtap ="tap"  data-id="2" bindlongtap="tap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">
+            时间  <image src="{{imageurl[1]}}" class="sort"></image>
+            </view>             
+            <view class="th th3" bindtap ="tap" data-id="4" bindlongtap="tap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">
+            医院  <image src="{{imageurl[2]}}" class="sort"></image>
+            </view>
+            <view class="th th4" bindtap ="tap" data-id="8" bindlongtap="tap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">
+            类型  <image src="{{imageurl[3]}}" class="sort"></image>
+            </view>      
+          </view>
+      
+          <view class="tr" wx:for="{{results}}" wx:for-index="index" wx:for-item="item">
+            <view class="td td1" data-id="{{index}}"   bindtap ="showImg"  bindlongtap="longTap"  
+            bindtouchstart="touchStart" bindtouchend="touchEnd">{{item.name}}</view>
+            <view class="td td2" data-id="{{index}}" bindtap ="showImg"  bindlongtap="longTap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">{{item.time}}</view>
+            <view class="td td3" data-id="{{index}}" bindtap ="showImg"  bindlongtap="longTap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">{{item.hospital}}</view>
+            <view class="td td4" data-id="{{index}}" bindtap ="showImg" bindlongtap="longTap" 
+            bindtouchstart="touchStart" bindtouchend="touchEnd">{{item.type}}</view>
+          </view>
+        </view>
+      </view>
+    </view> 
+
+</view>
